@@ -168,5 +168,8 @@ tolerations: []
 affinity: {}
 serviceAccount:
   create: false
+persistence:
+  enabled: true
+  size: 1Gi
 
 
