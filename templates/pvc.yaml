@@ -1,11 +1,12 @@
+{{- if .Values.persistence.enabled }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: helm-webapp-demo-pvc
+  name: {{ include "helm-webapp-demo.fullname" . }}-pvc
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
-
+      storage: {{ .Values.persistence.size }}
+{{- end }}
