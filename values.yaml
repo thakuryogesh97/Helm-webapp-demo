@@ -158,11 +158,10 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: {}
-serviceAccount:
-  create: false
 persistence:
   enabled: true
+  storageClass: ebs-expandable
+  accessMode: ReadWriteOnce
   size: 1Gi
-
+  mountPath: /usr/share/nginx/html
 
