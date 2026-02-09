@@ -56,14 +56,13 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
+            - name: web-storage
+              mountPath: {{ .Values.persistence.mountPath }}
       volumes:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        - name: web-storage
+          persistentVolumeClaim:
+            claimName: {{ include "webapp.fullname" . }}-pvc
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
