@@ -158,6 +158,9 @@ nodeSelector: {}
 
 tolerations: []
 
+affinity: {}
+
+
 persistence:
   enabled: true
   storageClass: ebs-expandable
