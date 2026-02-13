@@ -40,3 +40,10 @@ A PersistentVolumeClaim is used so that application data is not lost when the po
 ## Note 
 
 This Helm chart was tested  on AWS EKS.
+##  Persistent Storage (PVC)
+- Helm chart includes optional PVC support
+- PVC resize follows Kubernetes rules:
+  - Size increase only
+  - Size decrease not supported
+- PVC behavior depends on StorageClass and CSI driver
+- Live PVC behavior demonstrated using Killercoda due to infrastructure dependency
